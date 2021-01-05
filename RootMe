@@ -53,6 +53,9 @@ Ports Open:
 # TASK 5: What is the hidden directory? (Use gobuster: gobuster dir -u [Target_IP] -w [wordlist] -x [specify_extensions])
 
  /panel/ - a web page that accepts upload
+ 
+ Note: You can use burp suite to intercept request because the upload page doesnt accept files with .php extension. 
+       Send the intercepted request on burp suite in intruder and bruteforce extensions with it.
 
  # TASK 6: user.txt? (this is located in /var/www/ directory)
 
