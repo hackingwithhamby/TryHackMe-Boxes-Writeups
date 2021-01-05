@@ -1,0 +1,71 @@
+TryHackMe.com
+
+Box = RootMe
+
+IP = 10.10.127.247 (might differ in your case)
+
+```
+Nmap Scan Result:
+
+Nmap 7.60 scan initiated Tue Jan  5 11:26:00 2021 as: nmap -sC -sV -oN RootMe/NmapScans 10.10.127.247
+Nmap scan report for ip-10-10-127-247.eu-west-1.compute.internal (10.10.127.247)
+Host is up (0.0043s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 4a:b9:16:08:84:c2:54:48:ba:5c:fd:3f:22:5f:22:14 (RSA)
+|   256 a9:a6:86:e8:ec:96:c3:f0:03:cd:16:d5:49:73:d0:82 (ECDSA)
+|_  256 22:f6:b5:a6:54:d9:78:7c:26:03:5a:95:f3:f9:df:cd (EdDSA)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: HackIT - Home
+MAC Address: 02:7E:B3:FA:DD:C9 (Unknown)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Jan  5 11:26:09 2021 -- 1 IP address (1 host up) scanned in 8.44 seconds
+
+```
+Ports Open:
+
+22 - ssh
+80 - http
+
+```
+
+# TASK 1: How many ports are open?
+
+- 2 
+
+# TASK 2: Apache server version? (Nmap will show this:"|_http-server-header: Apache/2.4.29 (Ubuntu)")
+
+- 2.4.29
+
+# TASK 3: What service running on port 22?
+
+- ssh (Secure Shell)
+
+# TASK 5: What is the hidden directory? (Use gobuster: gobuster dir -u [Target_IP] -w [wordlist] -x [specify_extensions])
+
+ /panel/ - a web page that accepts upload
+
+ # TASK 6: user.txt? (this is located in /var/www/ directory)
+
+ - THM{y0u_g0t_a_sh3ll}
+
+ # TASK 7: Search for files with SUID permission, which file has weird permission? (find / -perm -u=s -type f 2>/dev/null)(this command will show files with SUID permission)
+
+ - /usr/bin/python
+
+# TASK 9: root.txt?
+
+- THM{pr1v1l3g3_3sc4l4t10n}
+
+```
+
+-FIN-  by: hamby
