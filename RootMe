@@ -68,6 +68,7 @@ Ports Open:
 # TASK 9: root.txt?
 
 - abuse the SUID permission of python via GTFObins (https://gtfobins.github.io/gtfobins/python/)
+- then cat /root/root.txt
 
 ```
 
